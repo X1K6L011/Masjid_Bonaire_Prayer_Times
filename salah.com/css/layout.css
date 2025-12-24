@@ -1,0 +1,271 @@
+/********************
+    GLOBAL
+********************/
+
+html,
+body {
+  width: 100%;
+  height: 85%;
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+}
+
+html {
+  background: #1BB8BF;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #1BB8BF 0%, #0080C9 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #1BB8BF 0%, #0080C9 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #1BB8BF 0%, #0080C9 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1bb8bf', endColorstr='#0080c9', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+body {
+  background: url(../img/salah.com.bg.png) no-repeat top center;
+  background-size: auto 50%;
+  font: 16px Nunito;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 60px;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 32px;
+  color: #FFF;
+  font-weight: lighter;
+  border-bottom: 1px #76EEF7 solid;
+  display: inline-block;
+  padding: 0 40px 10px 25px;
+  position: relative;
+}
+
+h3 {
+  font-size: 28px;
+  color: #FFF;
+  display: block;
+  text-align: center;
+  text-transform: none;
+  padding: 20px 0 0;
+}
+
+h4 {
+  font-size: 16px;
+  color: #AAFFF4;
+  display: block;
+  text-align: center;
+  text-transform: none;
+  padding: 10px 0 0;
+  font-weight: lighter;
+}
+
+h4 span {
+  font-weight: bold;
+  color: #48D9E4;
+  margin-right: 5px;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0284C8;
+}
+
+img {
+  height: 24px;
+  margin: 9px 0 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+
+img:hover {
+  height: 28px;
+  margin: 7px -2px 0 0;
+}
+
+/********************
+    NAVIGATION
+********************/
+
+nav ul {
+  text-align: right;
+  padding: 20px;
+}
+
+nav li {
+  padding: 5px 10px;
+  margin: 0 2px 0 0;
+  float: none;
+  display: inline-block;
+}
+
+nav li.active {
+  color: #0284C8;
+  font-weight: bolder;
+}
+
+/********************
+    MAIN
+********************/
+
+#main {
+  text-align: center;
+  position: relative;
+  top: 20%;
+}
+
+/********************
+    FOOTER
+********************/
+
+#footer {
+  text-align: center;
+  color: #32C8D4;
+  padding: 70px 0 50px;
+  font-size: 14px;
+}
+
+/********************
+    PRAYER TIMES - MODERN
+********************/
+
+/* --- THE MODERN GLASS CSS --- */
+.prayer-wrapper {
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  width: 90%;
+  max-width: 500px;
+  margin: 250px auto 50px;
+  /* Adjust top margin to clear your bg image */
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+#prayer-times {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#prayer-times thead th {
+  color: #AAFFF4;
+  /* Your light teal */
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#prayer-times td {
+  padding: 18px 0;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.adhaan-time {
+  color: #AAFFF4;
+  text-align: center;
+  font-size: 1.6rem !important;
+}
+
+.salah-time {
+  text-align: right;
+  opacity: 0.9;
+}
+
+/* The Active Glow */
+.is-active td {
+  color: #7BF2FB !important;
+  text-shadow: 0 0 15px rgba(123, 242, 251, 0.6);
+  font-weight: 700;
+}
+
+.is-active {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Column Alignments */
+#prayer-times th:nth-child(1),
+#prayer-times td:nth-child(1) {
+  text-align: left;
+  padding-left: 40px;
+  width: 30%;
+  /* Gives the prayer name a fixed area */
+}
+
+#prayer-times th:nth-child(2),
+#prayer-times td:nth-child(2) {
+  text-align: left;
+  padding-left: 100px;
+  width: 35%;
+}
+
+/* Updated Salah Column: Removed right alignment for padding */
+#prayer-times th:nth-child(3),
+#prayer-times td:nth-child(3) {
+  text-align: left;
+  padding-left: 45px;
+  /* This "pushes" the column from the center towards the right */
+  width: 35%;
+}
+
+/* Ensure the countdown remains centered below the table */
+#next-prayer-container {
+  text-align: center;
+}
+
+/* Countdown Area */
+#next-prayer-container {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+#countdown {
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  text-shadow: 0 0 20px rgba(72, 217, 228, 0.5);
+}
+
+@media (max-width: 480px) {
+  .prayer-wrapper {
+    margin-top: 180px;
+    padding: 15px;
+  }
+
+  #prayer-times td {
+    font-size: 1.1rem;
+  }
+}
+
+/********************
+    ERROR
+********************/
+
+dl#error {
+  text-transform: none;
+  color: #FFF;
+  text-align: left;
+  width: 960px;
+  margin: 0 auto;
+}
