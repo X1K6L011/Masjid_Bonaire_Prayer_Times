@@ -1,30 +1,379 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Muslim Prayer Times - DevLog</title>
+    <title>DevLogs | Head Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/layout.css">
-    <link rel="stylesheet" type="text/css" href="css/mobile.css">
-    <link href="img/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
-    <link href="http://fonts.googleapis.com/css?family=Nunito" media="screen" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+
+    <style>
+        /********************
+            GLOBAL STYLES
+        ********************/
+        html {
+            min-height: 100%;
+            background: radial-gradient(ellipse at center, #1BB8BF 0%, #0080C9 100%);
+            font-family: 'Nunito', sans-serif;
+            color: #FFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0 15px 50px;
+            background: url(../img/salah.com.bg.png) no-repeat top center;
+            background-size: auto 30%;
+            text-transform: uppercase;
+        }
+
+        .readable,
+        p,
+        .timestamp,
+        button,
+        input,
+        textarea,
+        .stat-value,
+        .file-name,
+        #lastModified {
+            text-transform: none !important;
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #7BF2FB;
+            width: 0%;
+            box-shadow: 0 0 10px #7BF2FB;
+        }
+
+        nav ul {
+            text-align: right;
+            padding: 25px 20px 10px;
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+            padding: 5px 10px;
+        }
+
+        nav a {
+            color: #AAFFF4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /********************
+            SEARCH & FILTERS
+        ********************/
+        .search-container {
+            max-width: 800px;
+            margin: 10px auto 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        #logSearch {
+            flex-grow: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 10px 20px;
+            color: white;
+            outline: none;
+            font-family: 'Nunito';
+        }
+
+        /********************
+            ADMIN VAULT
+        ********************/
+        #admin-vault {
+            display: none;
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 2px solid #7BF2FB;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        #privateNoteArea {
+            width: 100%;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /********************
+            REPOS & ARCHIVE
+        ********************/
+        .archive-section {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .file-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            cursor: pointer;
+            display: block;
+        }
+
+        .file-card:hover {
+            background: rgba(123, 242, 251, 0.2);
+            border-color: #7BF2FB;
+            transform: translateY(-3px);
+        }
+
+        /********************
+            ANALYTICS & LOGS
+        ********************/
+        .stats-dashboard {
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
+        .log-entry {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .timestamp {
+            background: rgba(123, 242, 251, 0.2);
+            color: #AAFFF4;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.7rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            color: #AAFFF4;
+        }
+
+        .btn:hover {
+            background: #AAFFF4;
+            color: #0080C9;
+        }
+
+        @media (min-width: 600px) {
+            .stats-dashboard {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media print {
+
+            nav,
+            .archive-section,
+            #admin-vault,
+            .search-container,
+            .btn {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
     <nav>
         <ul>
-            <li> <a href="../salah.com/index.html">Back to Home</a></li>
-            <li><a href="../Activities/Programs and Classes.html">Programs and Classes</a></li>
-            <li><a href="../README.md">About</a></li>
-            <li class="active">DevLog</li>
-
+            <li><a href="index.html">Home</a></li>
+            <li><button class="btn" id="authBtn" onclick="toggleVault()">🔑 ADMIN LOGIN</button></li>
         </ul>
     </nav>
-    <div id="main">
-        <h1>DevLog</h1>
+
+    <h1>DevLogs</h1>
+
+    <div class="search-container">
+        <input type="text" id="logSearch" placeholder="Search logs or tags..." onkeyup="filterLogs()">
     </div>
+
+    <div id="admin-vault" class="readable">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="color:#7BF2FB; font-weight:bold;">HEAD ADMIN NOTES</span>
+            <button class="btn" onclick="logout()">🔒 LOCK</button>
+        </div>
+        <textarea id="privateNoteArea" placeholder="Private observations..."></textarea>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+            <button class="btn" onclick="saveNote()">SAVE TO BROWSER</button>
+            <span id="lastModified" style="font-size:0.7rem;"></span>
+        </div>
+    </div>
+
+    <div class="archive-section">
+        <h3 style="margin:0; font-size:0.8rem; color:#AAFFF4;">📁 PROJECT REPOSITORY</h3>
+        <div class="file-grid readable">
+            <a href="programmes.html" class="file-card">
+                <span style="display:block; font-size:1.5rem;">📅</span>
+                <span class="file-name">Programmes_Page</span>
+                <span style="font-size:0.6rem; opacity:0.6;">Local Page</span>
+            </a>
+            <a href="../docs/research_notes.pdf" class="file-card">
+                <span style="display:block; font-size:1.5rem;">📜</span>
+                <span class="file-name">Theology_Research.pdf</span>
+                <span style="font-size:0.6rem; opacity:0.6;">Research PDF</span>
+            </a>
+            <a href="https://zoom.us" target="_blank" class="file-card">
+                <span style="display:block; font-size:1.5rem;">🎥</span>
+                <span class="file-name">Lecture_Hall</span>
+                <span style="font-size:0.6rem; opacity:0.6;">External Link</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="stats-dashboard">
+        <div class="stat-item">
+            <div style="font-size:0.6rem; color:#AAFFF4;">TOTAL LOGS</div>
+            <div class="stat-value" id="stat-total">0</div>
+        </div>
+        <div class="stat-item">
+            <div style="font-size:0.6rem; color:#AAFFF4;">FEATS</div>
+            <div class="stat-value" id="stat-feats">0</div>
+        </div>
+        <div class="stat-item">
+            <div style="font-size:0.6rem; color:#AAFFF4;">TESTS</div>
+            <div class="stat-value" id="stat-tests">0</div>
+        </div>
+        <div class="stat-item">
+            <div style="font-size:0.6rem; color:#AAFFF4;">WORDS</div>
+            <div class="stat-value" id="stat-words">0</div>
+        </div>
+    </div>
+
+    <div class="log-container" id="logContainer">
+        <div class="log-entry" data-tag="FEAT">
+            <div class="timestamp">Dec 25, 2025</div>
+            <h2 class="readable">Programmes Webpage Alpha</h2>
+            <div class="log-entry-content readable">
+                <span style="color:#7BF2FB; font-weight:800;">[FEAT]</span> Launched the Programmes & Classes index.
+                Featured a glassmorphic horizontal calendar and a live status indicator for Imam Jamal's lectures.
+            </div>
+        </div>
+        <div class="log-entry" data-tag="TEST">
+            <div class="timestamp">Aug 25, 2025</div>
+            <h2 class="readable">System Calibration</h2>
+            <div class="log-entry-content readable">
+                <span style="color:#7BF2FB; font-weight:800;">[TEST]</span> Verified that all data for research is
+                being
+                stored correctly. Ensured that the witchy assistant tone is consistent with user instructions.
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+        <button class="btn" onclick="window.print()">📥 EXPORT TO PDF</button>
+    </div>
+
+    <script>
+        const PASS = "Admin123";
+
+        // Search Script
+        function filterLogs() {
+            let input = document.getElementById('logSearch').value.toLowerCase();
+            let entries = document.querySelectorAll('.log-entry');
+            entries.forEach(e => {
+                e.style.display = e.innerText.toLowerCase().includes(input) ? "block" : "none";
+            });
+        }
+
+        // Auth & Save
+        function toggleVault() {
+            if (sessionStorage.getItem("isAdmin") === "true") showVault();
+            else if (prompt("Secret Word?") === PASS) { sessionStorage.setItem("isAdmin", "true"); showVault(); }
+        }
+        function showVault() {
+            document.getElementById('admin-vault').style.display = 'block';
+            document.getElementById('authBtn').style.display = 'none';
+            document.getElementById('privateNoteArea').value = localStorage.getItem('adminNote') || "";
+            document.getElementById('lastModified').innerText = "Last Saved: " + (localStorage.getItem('adminNoteTime') || "Never");
+        }
+        function logout() { sessionStorage.removeItem("isAdmin"); location.reload(); }
+        function saveNote() {
+            let now = new Date().toLocaleString();
+            localStorage.setItem('adminNote', document.getElementById('privateNoteArea').value);
+            localStorage.setItem('adminNoteTime', now);
+            document.getElementById('lastModified').innerText = "Last Saved: " + now;
+        }
+
+        // Stats & Scroll
+        window.onscroll = function () {
+            let win = document.documentElement;
+            document.getElementById("myBar").style.width = (win.scrollTop / (win.scrollHeight - win.clientHeight)) * 100 + "%";
+        };
+
+        function updateStats() {
+            let entries = document.querySelectorAll('.log-entry');
+            let words = 0, feats = 0, tests = 0;
+            entries.forEach(e => {
+                words += e.innerText.split(/\s+/).length;
+                if (e.dataset.tag === 'FEAT') feats++;
+                if (e.dataset.tag === 'TEST') tests++;
+            });
+            document.getElementById('stat-total').innerText = entries.length;
+            document.getElementById('stat-feats').innerText = feats;
+            document.getElementById('stat-tests').innerText = tests;
+            document.getElementById('stat-words').innerText = words.toLocaleString();
+        }
+
+        updateStats();
+        if (sessionStorage.getItem("isAdmin") === "true") showVault();
+    </script>
 </body>
 
 </html>

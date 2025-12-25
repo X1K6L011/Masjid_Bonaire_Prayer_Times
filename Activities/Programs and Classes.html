@@ -3,213 +3,96 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Current Programmes and Classes at the Mosque</title>
+    <title>Programs & Classes | B.I.C Mosque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/layout.css">
-    <link rel="stylesheet" type="text/css" href="css/mobile.css">
-    <link href="img/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
-    <link href="http://fonts.googleapis.com/css?family=Nunito" media="screen" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    <link href="css/layout.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/mobile.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
 
-    <style>
-        body {
-            font-family: "Times New Roman", serif;
-            margin: 40px;
-            color: #000;
-        }
 
-        /* Header */
-        .header {
-            position: relative;
-            text-align: center;
-            margin-bottom: 30px;
-            min-height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
-        .logo {
-            position: absolute;
-            left: 0;
-            width: 120px;
-        }
-
-        .title {
-            font-size: 48px;
-            font-weight: normal;
-            margin: 0;
-        }
-
-        /* Table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed;
-            margin-top: 20px;
-        }
-
-        th {
-            background-color: #155f82;
-            color: white;
-            padding: 12px;
-            font-size: 20px;
-            text-align: left;
-        }
-
-        td {
-            padding: 14px;
-            vertical-align: top;
-            font-size: 18px;
-            border: 2px solid white;
-            height: 110px;
-        }
-
-        tr:nth-child(2) td {
-            background-color: #ccd2d8;
-        }
-
-        tr:nth-child(3) td {
-            background-color: #e7eaed;
-        }
-
-        tr:nth-child(4) td {
-            background-color: #ccd2d8;
-        }
-
-        tr:nth-child(5) td {
-            background-color: #e7eaed;
-        }
-
-        td strong {
-            font-weight: bold;
-        }
-
-        /* Info bar */
-        .info-bar {
-            background-color: #8fd0ee;
-            text-align: center;
-            padding: 12px;
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* Text section */
-        .info-text {
-            margin-top: 30px;
-            font-size: 22px;
-            line-height: 1.5;
-        }
-
-        .info-text ul {
-            margin-top: 15px;
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .info-text li {
-            margin-bottom: 12px;
-        }
-    </style>
 </head>
 
 <body>
+
     <nav>
         <ul>
-
-            <li> <a href="../salah.com/index.html">Back to Home</a></li>
+            <li><a href="../salah.com/index.html">Salah</a></li>
             <li class="active">Programs and Classes</li>
-            <li><a href="../README.md">About</a></li>
-            <li><a href="../salah.com/test.html">DevLog</a></li>
-
-
         </ul>
+        <div class="header">
+            <img src="../img/BIC_LOGO.png" alt="B.I.C Logo" class="logo">
+            <div class="title">
     </nav>
-    <!-- Header -->
-    <div class="header">
-        <img src="BIC_LOGO.png" alt="B.I.C Logo" class="logo">
-        <div class="title">
-            Current Programmes and<br>
-            Classes at the Mosque
-        </div>
+
+
+    <div class="changes-note readable">
+        <p><b>Special Event:</b> None</p>
     </div>
 
-    <!-- Schedule Table -->
-    <table>
-        <tr>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-            <th>Sunday</th>
-        </tr>
-        <!-- First row -->
-        <tr>
-            <td><strong>(Asr to Maghrib):</strong><br>Beginners' class for kids (madrasah)</td>
-            <td><strong>(Asr to Maghrib):</strong><br>Beginners' class for kids (madrasah)</td>
-            <td><strong>(Asr to Maghrib):</strong><br>Beginners' class for kids (madrasah)</td>
-            <td></td>
-            <td><strong>(1:00PM to 1:30PM):</strong><br>Jumu'ah</td>
-            <td><strong>(10:30AM to 1:00PM):</strong><br>Young Learners' class</td>
-            <td><strong>(10:00AM to 11:00AM):</strong><br>Arabic Language</td>
-        </tr>
-        <!-- Second row -->
-        <tr>
-            <td></td>
-            <td><strong>(Maghrib to Isha):</strong><br>Arabic Language</td>
-            <td><strong>(Maghrib to Isha):</strong><br>Arabic Language</td>
-            <td></td>
-            <td></td>
-            <td><strong>(Asr to Maghrib):</strong><br>Sisters' class</td>
-            <td><strong>(10:30AM to 1:00PM):</strong><br>Young Learners' class</td>
-        </tr>
-        <!-- Third row -->
-        <tr>
-            <td><strong>(After Isha1):</strong><br>A Talk about the History of the Prophet PBUH.</td>
-            <td></td>
-            <td><strong>(After Isha1):</strong><br>Quran Revision</td>
-            <td><strong>(After Isha):</strong><br>A Talk about Sunnah + Dinner together</td>
-            <td></td>
-            <td></td>
-            <td><strong>(Maghrib to Isha):</strong><br>Discourse on Islamic Laws</td>
-        </tr>
-        <!-- Fourth row -->
-        <tr>
-            <td><strong>(After Isha2):</strong><br>Quran Memorization</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+    <h1>Programs & Classes</h1>
 
-    <div class="info-bar">↓ Important Information below ↓</div>
+    <div class="calendar-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody class="readable">
+                <tr>
+                    <td><strong>(Asr - Maghrib)</strong>Beginners' kids class (Madrasah)</td>
+                    <td><strong>(Asr - Maghrib)</strong>Beginners' kids class (Madrasah)</td>
+                    <td><strong>(Asr - Maghrib)</strong>Beginners' kids class (Madrasah)</td>
+                    <td>—</td>
+                    <td><strong>(1:00PM - 1:30PM)</strong>Jumu'ah</td>
+                    <td><strong>(11:00PM - 1:00PM)</strong>Young Learners' class</td>
+                    <td><strong>(10:00AM - 11:00AM)</strong>Arabic Language</td>
+                </tr>
+                <tr>
+                    <td>—</td>
+                    <td><strong>(Maghrib - Isha)</strong>Arabic Language</td>
+                    <td><strong>(Maghrib - Isha)</strong>Arabic Language</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td><strong>(Asr - Maghrib)</strong>Sisters' class</td>
+                    <td><strong>(10:30AM - 1:00PM)</strong>Young Learners' class</td>
+                </tr>
+                <tr>
+                    <td><strong>(After Isha)</strong>Talk: History of the Prophet PBUH</td>
+                    <td>—</td>
+                    <td><strong>(After Isha)</strong>Quran Revision</td>
+                    <td><strong>(After Isha)</strong>Sunnah Talk + Community Dinner</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td><strong>(Maghrib - Isha)</strong>Islamic Laws Discourse</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <!-- Information Text -->
-    <div class="info-text">
-        <p>
-            All of these programmes and classes are conducted by our Imam: <strong>Jamal</strong>.
-            We warmly invite you to join these classes, or, if you prefer, you can request
-            more classes by contacting Imam.
-        </p>
+    <div class="info-text-block readable">
+        <p>All programs are conducted by our Imam: <strong>Jamal</strong>. We warmly invite you to join us. If you
+            wish to request additional classes, please contact the Imam directly.</p>
 
-        <p>We would also like to announce some plans for January 2026.</p>
-
-        <ul>
-            <li>- We would like to start a 1-year programme concerning Islamic sciences with a diploma at the end.
-                Signing up for this will be via a website.</li>
-            <li>- We will be launching a YouTube channel to spread Islam.</li>
-            <li>- We will have two WhatsApp group chats called "Ask Imaam!", one for the brothers and one for the
-                sisters. Here you can, as the name suggests, ask our Imam any question you might have (Islam-related, of
-                course).</li>
+        <h2 style="margin-top: 30px; font-size: 1.2rem;">Vision for January 2026</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px;">• 📜 <b>1-Year Islamic Sciences Diploma</b> - A formal curriculum for
+                serious students. Registration via website coming soon.</li>
+            <li style="margin-bottom: 15px;">• 🌐 <b>Official YouTube Channel</b> - Spreading the light of Islam through
+                digital discourse.</li>
+            <li style="margin-bottom: 15px;">• 💬 <b>"Ask Imaam!" Groups</b> - Dedicated WhatsApp circles for brothers
+                and sisters to find clarity.</li>
         </ul>
     </div>
-
+    <div id="footer">
+        Last updated: 25 December 2025
 </body>
 
 </html>

@@ -1,0 +1,57 @@
+<div class="portal-grid">
+    <a href="#" class="btn btn-wa">📱 WHATSAPP COMMUNITY</a>
+    <a href="#" class="btn btn-zoom">🎥 ENTER ZOOM LECTURE HALL</a>
+</div>
+
+
+<div id="mosque-status" class="status-container status-offline">
+    <span class="pulse-dot"></span>
+    <span id="status-text">THE MOSQUE IS CURRENTLY QUIET</span>
+</div>
+
+
+<div class="faq-box readable">
+    <h2>Digital Access FAQ</h2>
+    <div class="faq-item">
+        <h4>How do I use the Zoom link?</h4>
+        <p>Simply click the "Enter Zoom Hall" button during scheduled lecture times. If you are on mobile, having
+            the Zoom app installed provides the smoothest experience.</p>
+    </div>
+    <div class="faq-item">
+        <h4>What is the WhatsApp Community?</h4>
+        <p>It is a one-way broadcast and moderated group where you will receive the latest updates, schedule
+            changes, and direct wisdom from Imam Jamal.</p>
+    </div>
+</div>
+
+<div id="footer">
+    © 2025 B.I.C Mosque - All Rights Reserved.
+</div>
+
+<script>
+    /* STATUS ALCHEMY 
+       Change 'mosqueState' to "live", "soon", or "offline" 
+    */
+    const mosqueState = "live";
+    const currentClass = "Prophetic History";
+    const zoomLink = "#"; // Replace with your actual Zoom URL
+
+    function updateStatus() {
+        const container = document.getElementById('mosque-status');
+        const text = document.getElementById('status-text');
+
+        if (mosqueState === "live") {
+            container.className = "status-container status-live";
+            text.innerHTML = `LIVE NOW: ${currentClass.toUpperCase()} — <a href="${zoomLink}" style="color:white; text-decoration:underline;">JOIN ZOOM</a>`;
+        }
+        else if (mosqueState === "soon") {
+            container.className = "status-container status-soon";
+            text.innerText = `STARTING SOON: ${currentClass.toUpperCase()}`;
+        }
+        else {
+            container.className = "status-container status-offline";
+            text.innerText = "THE MOSQUE IS CURRENTLY QUIET";
+        }
+    }
+    updateStatus();
+</script>

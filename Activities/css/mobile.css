@@ -1,0 +1,29 @@
+        @media (min-width: 768px) {
+          .portal-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          body {
+            padding: 0 40px 50px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .logo {
+            position: absolute;
+            left: auto;
+            top: 0px;
+            width: 80px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          h1 {
+            font-size: 1.5rem;
+            font-weight: 200;
+            text-align: center;
+            margin-top: 16px;
+            color: #FFF;
+            background-size: auto 90%;
+          }
+        }

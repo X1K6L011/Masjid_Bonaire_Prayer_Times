@@ -1,7 +1,6 @@
 /********************
     GLOBAL
 ********************/
-
 html,
 body {
   width: 100%;
@@ -10,7 +9,6 @@ body {
   padding: 0;
   position: sticky;
   font-family: 'Nunito', sans-serif;
-  text-transform: uppercase;
 }
 
 html {
@@ -30,12 +28,11 @@ body {
   background: url(../img/salah.com.bg.png) no-repeat top center;
   background-size: auto 50%;
   font: 16px Nunito;
-  text-transform: uppercase;
 }
 
 h1 {
   color: #FFF;
-  font-size: 60px;
+  font-size: 3rem;
   font-weight: lighter;
 }
 
